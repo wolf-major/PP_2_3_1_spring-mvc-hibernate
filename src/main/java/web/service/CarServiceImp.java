@@ -10,16 +10,16 @@ public class CarServiceImp implements CarService {
     private CarDAO carDAO = new CarDAOImp();
 
     public CarServiceImp() {
-        addCar();
+        addCar(new Car("BMW", "X5", 2020));
+        addCar(new Car("Audi", "A4", 2018));
+        addCar(new Car("Tesla", "Model S", 2021));
+        addCar(new Car("Chevrolet", "Impala", 1967));
+        addCar(new Car("Ford", "Mustang", 2015));
     }
 
     @Override
-    public void addCar() {
-        carDAO.addCar(new Car("BMW", "X5", 2020));
-        carDAO.addCar(new Car("Audi", "A4", 2018));
-        carDAO.addCar(new Car("Tesla", "Model S", 2021));
-        carDAO.addCar(new Car("Chevrolet", "Impala", 1967));
-        carDAO.addCar(new Car("Ford", "Mustang", 2015));
+    public void addCar(Car car) {
+        carDAO.addCar(car);
     }
 
     @Override
