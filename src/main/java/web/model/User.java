@@ -7,23 +7,23 @@ import java.util.Objects;
 @Table(name = "users")
 public class User {
 	@Id
+	@Column(name="id")
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "id")
 	private int id;
 
-	@Column(name = "firstName")
+	@Column(name="firstName")
 	private String firstName;
 
-	@Column(name = "lastName")
+	@Column(name="lastName")
 	private String lastName;
 
-	@Column(name = "address")
+	@Column(name="address")
 	private String address;
 
-	@Column(name = "phoneNumber")
+	@Column(name="phoneNumber")
 	private String phoneNumber;
 
-	@Column(name = "email")
+	@Column(name="email")
 	private String email;
 
 	public User() {}
