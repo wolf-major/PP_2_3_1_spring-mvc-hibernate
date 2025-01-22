@@ -23,12 +23,6 @@ public class UserDAOImp implements UserDAO {
         return entityManager.find(User.class, id);
     }
 
-
-    @Override
-    public void addUser(User user) {
-        entityManager.persist(user);
-    }
-
     @Override
     public void deleteUser(User user) {
         User userForRemoving = entityManager.find(User.class, user.getId());
@@ -36,7 +30,7 @@ public class UserDAOImp implements UserDAO {
     }
 
     @Override
-    public void editUser(User user) {
+    public void saveUser(User user) {
         entityManager.merge(user);
     }
 }

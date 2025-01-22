@@ -30,17 +30,12 @@ public class UserServiceImp implements UserService {
     }
 
     @Override
-    public void addUser(User user) {
-        userDAO.addUser(user);
-    }
-
-    @Override
     public void deleteUser(User user) {
         userDAO.deleteUser(user);
     }
 
     @Override
-    public void editUser(User user) {
-        userDAO.editUser(user);
+    public void saveUser(User user) {
+        userDAO.saveUser(user);
     }
 }

@@ -40,10 +40,9 @@ public class UsersController {
 
     @PostMapping(value = "/save")
     public String saveUser(@ModelAttribute("newUser") User user) {
-        userService.addUser(user);
+        userService.saveUser(user);
         return "redirect:/users";
     }
-
 
     @GetMapping(value = "/edit")
     public ModelAndView editUserForm(@RequestParam(value = "id") Integer id) {
@@ -55,7 +54,7 @@ public class UsersController {
 
     @PostMapping(value = "/save_edit")
     public String saveEditUser(@ModelAttribute("user") User user) {
-        userService.editUser(user);
+        userService.saveUser(user);
         return "redirect:/users";
     }
 
