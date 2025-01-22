@@ -3,18 +3,19 @@ package web.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
 import web.model.User;
 import web.service.UserService;
 
+import javax.validation.Valid;
 import java.util.Map;
 
 @Controller
-@Validated
+@Valid
 public class UsersController {
     private final UserService userService;
 
@@ -45,8 +46,22 @@ public class UsersController {
 
 
     @GetMapping(value = "/edit")
-    public String editUser(@RequestParam(value = "id") Integer id, Model model) {
-        return "userEditpage";
+    public ModelAndView editUserForm(@RequestParam(value = "id") Integer id) {
+        ModelAndView mav = new ModelAndView("edit_user");
+        User user = userService.getUser(id);
+        mav.addObject("user", user);
+        return mav;
     }
 
+    @PostMapping(value = "/save_edit")
+    public String saveEditUser(@ModelAttribute("user") User user) {
+        userService.editUser(user);
+        return "redirect:/users";
+    }
+
+    @GetMapping(value = "delete")
+    public String deleteUser(@RequestParam(value = "id") Integer id) {
+        userService.deleteUser(userService.getUser(id));
+        return "redirect:/users";
+    }
 }

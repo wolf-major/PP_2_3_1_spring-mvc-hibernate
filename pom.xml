@@ -11,9 +11,9 @@
     <packaging>war</packaging>
 
     <properties>
-        <spring.version>5.3.14</spring.version> <!-- Используем Spring 5.x -->
+        <spring.version>5.3.14</spring.version>
         <hibernate.version>5.6.3.Final</hibernate.version>
-        <hibernate.validator.version>6.2.5.Final</hibernate.validator.version> <!-- Используем Hibernate Validator 6.x для javax.validation -->
+        <hibernate.validator.version>6.2.5.Final</hibernate.validator.version>
         <thymeleaf.version>3.0.14.RELEASE</thymeleaf.version>
         <mysql.version>8.0.28</mysql.version>
         <servlet.api.version>4.0.1</servlet.api.version>
@@ -21,7 +21,6 @@
     </properties>
 
     <dependencies>
-        <!-- Spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
@@ -43,7 +42,6 @@
             <version>${spring.version}</version>
         </dependency>
 
-        <!-- Hibernate -->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
@@ -55,7 +53,6 @@
             <version>${hibernate.validator.version}</version>
         </dependency>
 
-        <!-- Servlet API -->
         <dependency>
             <groupId>javax.servlet</groupId>
             <artifactId>javax.servlet-api</artifactId>
@@ -63,21 +60,18 @@
             <scope>provided</scope>
         </dependency>
 
-        <!-- Thymeleaf -->
         <dependency>
             <groupId>org.thymeleaf</groupId>
             <artifactId>thymeleaf-spring5</artifactId>
             <version>${thymeleaf.version}</version>
         </dependency>
 
-        <!-- MySQL -->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>${mysql.version}</version>
         </dependency>
 
-        <!-- Expression Language (EL) для валидации -->
         <dependency>
             <groupId>org.glassfish</groupId>
             <artifactId>javax.el</artifactId>
