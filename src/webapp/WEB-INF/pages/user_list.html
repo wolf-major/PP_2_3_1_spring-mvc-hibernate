@@ -9,7 +9,7 @@
 <body>
 <div class="container mt-4">
     <h1 th:text="${title}">Список пользователей:</h1>
-    <a th:href="@{/addUser}" class="btn btn-primary mb-3">Добавить пользователя</a>
+    <a th:href="@{/add_user}" class="btn btn-primary mb-3">Добавить пользователя</a>
     <table class="table table-bordered">
         <thead>
         <tr>
@@ -23,7 +23,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user, stat : ${userList}">
+        <tr th:each="user, stat : ${user_list}">
             <td th:text="${stat.index + 1}">1</td>
             <td th:text="${user.firstName}">John</td>
             <td th:text="${user.lastName}">Doe</td>

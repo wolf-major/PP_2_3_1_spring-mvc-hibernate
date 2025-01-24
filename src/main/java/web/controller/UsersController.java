@@ -27,12 +27,12 @@ public class UsersController {
     @GetMapping(value = "/users")
     public String getUsers(Model model) {
         model.addAttribute("title", "Список пользователей:");
-        model.addAttribute("userList", userService.getUsers());
+        model.addAttribute("user_list", userService.getUsers());
         return "user_list";
     }
 
-    @GetMapping(value = "/addUser")
-    public String newUserForm(Map<String, Object> model) {
+    @GetMapping(value = "/add_user")
+    public String createNewUserForm(Map<String, Object> model) {
         User user = new User();
         model.put("newUser", user);
         return "new_user";
@@ -54,7 +54,7 @@ public class UsersController {
 
     @PostMapping(value = "/save_edit")
     public String saveEditUser(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
+        userService.updateUser(user);
         return "redirect:/users";
     }
 
